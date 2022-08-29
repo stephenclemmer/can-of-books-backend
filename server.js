@@ -11,12 +11,12 @@ const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3002;
 
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_URL);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(){
+db.once('open', function () {
 
   console.log('Mongoose is connected');
 });
@@ -30,6 +30,17 @@ app.get('/', (request, response) => {
 
 });
 
+app.get('/books', getBooks);
+
+async function getBooks(request, response, next) {
+  try {
+    let results = await Book.find();
+    response.status(200).send(results);
+  } catch (error) {
+    next(error);
+  }
+
+}
 
 
 // Error message section
