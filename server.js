@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3002;
 
 app.get('/', (request, response) => {
 
-  response.send(200).send('This Server is Working');
+  response.status(200).send('This Server is Working');
 
 });
 
