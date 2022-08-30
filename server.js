@@ -9,6 +9,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = process.env.PORT || 3002;
 
 const mongoose = require('mongoose');
@@ -39,8 +40,19 @@ async function getBooks(request, response, next) {
   } catch (error) {
     next(error);
   }
-
 }
+
+app.post('/books', postBook);
+async function postBook(request, response, next) {
+  console.log(request.body);
+  try {
+    const newBook = await Book.create(request.body);
+    response.status(201).send(newBook);
+  } catch (error){
+    next(error);
+  }
+}
+
 
 
 // Error message section
