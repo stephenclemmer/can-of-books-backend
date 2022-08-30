@@ -48,10 +48,25 @@ async function postBook(request, response, next) {
   try {
     const newBook = await Book.create(request.body);
     response.status(201).send(newBook);
-  } catch (error){
+  } catch (error) {
     next(error);
   }
 }
+
+app.delete('/books/:bookid', deleteBook);
+
+async function deleteBook(request, response, next) {
+  const id = request.params.bookid;
+  console.log(id);
+  try {
+    await Book.findByIdAndDelete(id);
+    response.status(204).send('success!');
+  } catch (error) {
+    next(error);
+  }
+}
+
+
 
 
 
