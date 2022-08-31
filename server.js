@@ -66,9 +66,24 @@ async function deleteBook(request, response, next) {
   }
 }
 
+app.put('/books/:bookid', putBooks);
 
 
+async function putBooks(request, response, next) {
+  let id = request.params.bookid;
 
+  try {
+    let data = request.body;
+
+    const updateBook = await Book.findByIdAndUpdate(id, data, {
+      new: true, overwrite: true
+    });
+    response.status(201).send(updateBook);
+
+  } catch (error) {
+    next(error);
+  }
+}
 
 // Error message section
 app.get('*', (request, response) => {
