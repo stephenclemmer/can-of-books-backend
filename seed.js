@@ -1,5 +1,11 @@
+/**
+ * The function seeds a MongoDB database with three book documents.
+ */
 'Use strict';
 
+/* `require ('dotenv').config();` loads the environment variables from a .env file into the process.env
+object, making them available to the application. This is useful for storing sensitive information
+like database URLs or API keys. */
 require ('dotenv').config();
 
 const {default: mongoose} = require ('mongoose');
