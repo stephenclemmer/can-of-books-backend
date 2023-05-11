@@ -214,9 +214,6 @@ async function putBooks(request, response, next) {
 }
 
 // Error message section
-/* The above code is defining a route handler for all HTTP GET requests that matches any URL path. The
-handler sends a response with a 500 status code and a JSON object containing an error message. This
-code is used to handle any unexpected errors that may occur in the application. */
 app.get('*', (request, response) => {
   response.status(500).send('"error": "Something went wrong"');
 });
