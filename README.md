@@ -1,3 +1,7 @@
+Mongo DB can be accessed at cloud.mongodb.com
+
+Run npm install mongodb on the command line of the application
+
 
 
 ## Can of Books Backend
