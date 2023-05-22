@@ -1,6 +1,5 @@
 'use strict';
 console.log('Your Server Is Here!');
-
 require('dotenv').config();
 
 const Book = require('./models/book.js');
@@ -14,7 +13,8 @@ const PORT = process.env.PORT || 3002;
 
 const mongoose = require('mongoose');
 
-mongoose.connect('process.env.DB_URL');
+// console.log('+++++++++++++', process.env.DB_URL)
+mongoose.connect(process.env.DB_URL);
 
 const db = mongoose.connection;
 
