@@ -2,7 +2,7 @@ Mongo DB can be accessed at cloud.mongodb.com
 One will need to insert their password for cloud.mongodb into the string to be stored in the .env, and will also need to give the database a name which will go in between the ? and / in the string.
 
 npm i mongoose
-Run npm install mongodb on the command line of the application
+npm install mongodb on the command line of the application
 
 
 
